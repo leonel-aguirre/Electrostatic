@@ -1,17 +1,27 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <link rel="stylesheet" href="css/index.css">
-    <script src="js/p5.min.js"></script>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
-    <div class="container">
-      <button onclick="pressed()">ADD</button>
+
+<head>
+  <link rel="stylesheet" href="css/index.css">
+  <script src="js/p5.min.js"></script>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="left-block">
+      <button class='button' onclick="pressed()">ADD</button>
       <div id="graph"></div>
-      <h1 id="content"></h1>
     </div>
-    <script src="js/index.js" charset="utf-8"></script>
-  </body>
+    <div class="right-block">
+      <div class="sub-container">
+        <div id="xPos" class="label"></div>
+        <div id="yPos" class="label"></div>
+      </div>
+    </div>
+  </div>
+  <script src="js/index.js" charset="utf-8"></script>
+</body>
+
 </html>

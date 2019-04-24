@@ -8,6 +8,8 @@
 
 // document.getElementById('content').innerHTML = result + 'N';
 
+var xPosLabel = document.getElementById('xPos');
+var yPosLabel = document.getElementById('yPos');
 
 
 
@@ -41,15 +43,15 @@ var points = [];
 var count = 0;
 
 function pressed() {
-    points.push(new DragablePoint(300, 300, 30, 30, count));
+    points.push(new DragablePoint(250, 250, count));
     count++;
 }
 
-var graphRes = 10;
+var graphRes = 20;
 var graphSection;
 
 function setup() {
-    var canvas = createCanvas(600, 600);
+    var canvas = createCanvas(500, 500);
     canvas.parent('graph');
     graphSection = width / graphRes;
 }
@@ -97,7 +99,7 @@ function mouseReleased() {
 /* ******DRAGABLE OBJECT****** */
 
 class DragablePoint {
-    constructor(x, y, w, h, zPos) {
+    constructor(x, y, zPos) {
         this.color = Math.floor(Math.random() * 361);
 
         this.dragging = false;
@@ -106,7 +108,11 @@ class DragablePoint {
         this.x = x;
         this.y = y;
 
-        this.size = Math.floor(Math.random() * 100);
+        (Math.floor(Math.random()*2))? this.charge = '➕' : this.charge = '➖';
+
+        console.log(this.charge);
+        
+        this.size = ((Math.floor(Math.random() * 7) + 1) * 10) + 15;
 
         this.offsetX = 10;
         this.offsetY = 10;
@@ -125,8 +131,13 @@ class DragablePoint {
         this.isMouseOver();
 
         if (this.dragging) {
-            this.x = mouseX - this.offsetX;
-            this.y = mouseY - this.offsetY;
+            this.x = Math.round((mouseX - this.offsetX)/25) * 25;
+            this.y = Math.round((mouseY - this.offsetY)/25) * 25;
+
+            console.log(`X:${this.x} Y:${this.y}`)
+            
+            xPosLabel.innerHTML = `X: ${((this.x - 250)/(25)).toFixed(0)}`;
+            yPosLabel.innerHTML = `Y: ${(((this.y - 250)*(-1))/(25)).toFixed(0)}`;
         }
 
         
@@ -143,13 +154,30 @@ class DragablePoint {
         
         ellipse(constrain(this.x, 0, width), constrain(this.y, 0, height), this.size, this.size);
         
+        textSize(15);
+        
+        if (this.dragging) {
+            fill(this.color, 80, 15);
+            stroke(this.color, 80, 15);
+            text(this.charge, this.x-7.5, this.y+5);
+        } else if (this.rollover) {
+            fill(this.color, 80, 25);
+            stroke(this.color, 80, 25);
+            text(this.charge, this.x-7.5, this.y+5);
+        } else {
+            fill(this.color, 80, 35);
+            stroke(this.color, 80, 35);
+            text(this.charge, this.x-7.5, this.y+5);
+        }
+        
+        
         strokeWeight(1);
         colorMode(RGB);
         
-        textSize(15);
+        textStyle(BOLD);
         fill(0);
-        stroke(0);
-        text(`q${this.zPos+1}`, this.x + this.size, this.y - this.size);
+        noStroke();
+        text(`q${this.zPos+1}`, this.x + this.size/2, this.y - this.size/2);
     }
 
     isMouseOver() {
