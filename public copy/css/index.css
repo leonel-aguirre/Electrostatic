@@ -1,0 +1,71 @@
+body{
+  background-color: springgreen;
+}
+
+.button{
+  width: 100%;
+  height: 65px;
+  font-size: 30px;
+  border: 5px solid hsl(225, 73%, 47%);
+  margin-bottom: 10px;
+  background-color: royalblue;
+  border-radius: 10px;
+  font-weight: bold;
+  padding-top: 5px;
+  color: #EEE;
+}
+
+.button:hover{
+  background-color: hsl(225, 73%, 47%);
+}
+
+.button:active{
+  background-color: hsl(225, 73%, 37%);  
+}
+
+.button:focus{
+  outline: 0;
+}
+
+.container {
+  display: flex;
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.label{
+  width: 150px;
+  font-size: 30px;
+  color: #333;
+  margin: 0;
+  background-color: #0002;
+  border-radius: 10px;
+}
+
+#xPos{
+  border-radius: 10px 0px 0px 10px;
+}
+
+#yPos{
+  border-radius: 0px 10px 10px 0px;
+}
+
+.edit-block{
+  border-radius: 10px;
+  border: 10px solid #333;
+  background-color: #EEE;
+  margin-left: 15px;
+}
+
+.pos-container{
+  display: flex;
+}
+
+canvas{
+  border-radius: 10px;
+  border: 10px solid #333;
+}

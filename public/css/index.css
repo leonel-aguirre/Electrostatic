@@ -1,70 +1,74 @@
-body{
-  background-color: springgreen;
-}
-
-.button{
-  width: 100%;
-  height: 60px;
-  font-size: 30px;
-  border: 5px solid hsl(225, 73%, 47%);
-  margin-bottom: 10px;
-  background-color: royalblue;
-  border-radius: 10px;
-  font-weight: bold;
-  padding-top: 5px;
-  color: #EEE;
-}
-
-.button:hover{
-  background-color: hsl(225, 73%, 47%);
-}
-
-.button:active{
-  background-color: hsl(225, 73%, 37%);  
-}
-
-.button:focus{
-  outline: 0;
-}
-
-.container {
-  display: flex;
-  text-align: center;
-  font-family: "Roboto", sans-serif;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.label{
-  width: 150px;
-  font-size: 30px;
-  color: #333;
+body {
+  font-family: 'Manjari', sans-serif;
+  padding: 0;
   margin: 0;
-  background-color: #0002;
-  border-radius: 10px;
+  overflow: hidden;
 }
 
-#xPos{
-  border-radius: 10px 0px 0px 10px;
+.sliderContainer {
+  position: absolute;
+  height: 200px;
+  left: -65px;
+  bottom: 10px;
+  z-index: 1;
+  color: #DDD;
 }
 
-#yPos{
-  border-radius: 0px 10px 10px 0px;
+#zoomSlider {
+  -webkit-appearance: none;
+  width: 200px;
+  height: 15px;
+  border-radius: 100px;
+  background: #d3d3d3;
+  outline: none;
+  transform: rotate(270deg) translate(-20%, -00%);
+  box-shadow: -3px 3px 5px #333A; 
 }
 
-.right-block{
-  border-radius: 10px;
-  background-color: #0002;
-  margin-left: 15px;
+.zoomSign{
+  color: #333;
+  position: absolute;
+  left: 98px;
+  font-weight: bold;
 }
 
-.sub-container{
-  display: flex;
+.plusSign{
+  top: -69px;
 }
 
-canvas{
-  border-radius: 10px;
-  border: 10px solid #333;
+.minusSign{
+  bottom: 28px;
+}
+
+#zoomLabel {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 15px;
+  font-weight: bold;
+  background-color: #333;
+  padding: 5px;
+  padding-bottom: 2px;
+  border-radius: 5px;
+  box-shadow: 3px 3px 5px #333A; 
+}
+
+#zoomSlider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #4CA;
+  box-shadow: -3px 3px 5px #333A; 
+  cursor: pointer;
+}
+
+#zoomSlider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #4CA;
+  cursor: pointer;
 }
